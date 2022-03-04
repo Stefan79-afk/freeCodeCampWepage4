@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<style>
+body
+{
+    background-color: #161616;
+    color: lightgray;
+
+}
+
+main
+{
+    display: grid;
+    grid-template-columns: 15.5% 83%;
+    grid-column-gap:1.5%;
+    grid-row-gap: 1%;
+    font-size: 1vmax;
+}
+
+div
+{
+    background-color: #3c0000;
+    color:cyan;
+    padding: 1%;
+}
+.main-section
+{
+    color:lightgray;
+}
+.nav-link
+{
+    color: yellow;
+    text-decoration: none;
+    font-style: normal;
+}
+
+@media(max-width: 300px)
+{
+    body
+    {
+        font-size: 14px;
+    }
+}
+nav
+{
+    background-color: #000018;
+    grid-column: 1 / 2;
+    grid-row: 1 / 8;
+    margin-left: -7px;
+    margin-top: -9px;
+}
+
+footer
+{
+    margin-bottom: 2%;
+}
+
+section
+{
+    background-color: #404040;
+    padding: 2%;
+}
+
+h3
+{
+    font-size: 150%;
+    text-decoration: underline;
+}
+
+h4
+{
+    font-style: italic;
+    font-size: 125%;
+}
+
+</style>
+
+<html>
+    <head>
+        <title>Documentation Page</title>
+    </head>
+    <body>
+        <main id = "main-doc">
+            <nav>
+                <header>
+                    <h1>Object Oriented Programming Basics</h1>
+                </header>
+                <br><br><br>
+                <a class = "nav-link" href = "#Classes_and_Objects">Classes and Objects</a><br><br>
+                <a class = "nav-link" href = "#Access_Types">Access Types</a><br><br>
+                <a class = "nav-link" href = "#Constructors_and_Deconstructors">Constructors and Deconstructors</a><br><br>
+                <a class = "nav-link" href = "#Inheritance">Inheritance</a><br><br>
+                <a class = "nav-link" href = "#Polymorphism">Polymorphism</a><br><br>
+                <a class = "nav-link" href = "#Other">Other</a><br><br>
+            </nav>
+            <section class = "main-section" id = "Classes_and_Objects">
+                <header>
+                    <h3><strong>Classes and Objects</strong></h3>
+                </header>
+
+                <ul>
+                    <li>Classes</li>
+                    <li>Objects</li>
+                </ul>
+
+                <h4>Classes</h4>
+                <p>
+                    A simple way to think about classes is that they are like blueprints in the real world: In a blueprint, you clearly draw the schematics for 
+                    a particular building you want to build, by defining its shape, its size and so on. In much the same way, a class is a blueprint for objects: 
+                    you declare an object's variables, its methods(functions that they can call)
+                </p>
+
+                <h4>Objects</h4>
+                <p>
+                    If classes are the blueprint, then objects are the actual result of that blueprint.An object, also called instance of the class, is a 
+                    data type composed of the class's variables that can use its methods.
+                </p>
+
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class Complex<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspint real;<br>
+                            &nbsp&nbsp&nbsp&nbspint imaginary;<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspvoid display_nr()<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << real << " + i *" << imaginary << endl;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                        };<br>
+                        <br>
+                        int main()<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspComplex a;<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspa.real = 5;<br>
+                            &nbsp&nbsp&nbsp&nbspa.imaginary = 7;<br>
+                            &nbsp&nbsp&nbsp&nbspa.display_nr();<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspreturn 0;<br>
+                            <br>
+                        }<br>
+                    </code>
+                </div>
+
+                <p>
+                    The code above demonstrates the basics of classes and objects: the class <i><strong>Complex</strong></i> 
+                    defines the blueprint/definition of a complex 
+                    number, made from a real part and an imaginary part. The method/function <i><strong>display_nr</strong></i> simply outputs to the console the 2 
+                    variables in the way a complex number is written. Then the object <i><strong>a</strong></i> gets declared, and its variables are given values. 
+                    The object can call upon the method and have its values written in the usual form.
+                </p>
+
+            </section>
+
+            <section class = "main-section" id = "Access_Types">
+                <header>
+                    <h3><strong>Access Types</strong></h3>
+                </header>
+
+                <uL>
+                    <li>What are they?</li>
+                    <li>Private</li>
+                    <li>Public</li>
+                </uL>
+
+                <h4>What are they?</h4>
+                <p>Access types refer to where the classe's contents can be used. A simple way to think about it is like asking for permission. 
+                    Different types of access can or cannot offer permision for outside code to modify the data within the class.
+                    The 3 different types are:
+                    <ul>
+                        <li>Private</li>
+                        <li>Public</li>
+                        <li>Protected</li>
+                    </ul>
+
+                    They will all be expanded upon in the following paragraphs
+                </p>
+
+                <h4>Private</h4>
+                <p>
+                    By default, the variables of a class are declared as private, which means that they cannot be modified outside of the classe's scope. 
+                    Similarly, if a function is declared in private, it cannot be called outside the class. It is often good practice to declare the 
+                    variables of a class 
+                    as private, in order to avoid illegal access and modifications.
+                </p>
+
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class Complex<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspprivate:<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspint real;<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspint imaginary;<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspvoid display_nr()<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << real << " + i *" << imaginary << endl;<br>
+                                &nbsp&nbsp&nbsp&nbsp }<br>
+                        };<br>
+                        <br>
+                        int main()<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspComplex a;<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspa.real = 5; //This will cause an error, since real is not accessible outside of "Complex"<br>
+                            &nbsp&nbsp&nbsp&nbspa.imaginary = 7;<br>
+                            &nbsp&nbsp&nbsp&nbspa.display_nr();<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspreturn 0;<br>
+                            <br>
+                        }<br>
+                    </code>
+                </div>
+                
+
+                <h4>Public</h4>
+                <p>
+                    Elements declared as public can be accessed from anywhere in the program, therefore making this type the most permissive. 
+                    A class's methods are generally declared as public
+                </p>
+
+                <h4>Protected</h4>
+                <p>
+                    A protected element can be accessed by the class and classes that inherit it. Inheritance will be disscussed more in-depth 
+                    in the Inheritance section
+                </p>
+
+            </section>
+
+            <section class = "main-section" id = "Constructors_and_Deconstructors">
+                <header>
+                    <h3><strong>Constructors and Deconstructors</strong></h3>
+                </header>
+
+                <ul>
+                    <li>Constructors</li>
+                    <li>Deconstructors</li>
+                </ul>
+
+                <h4>Constructors</h4>
+                <p>
+                    A constructor is a special function that has no type and does not return anything. It is used to initialize the variables of an object. 
+                    For example, in the code snippet above, instead of declaring each of <i><strong>a</strong></i>, we can do this instead:
+                </p>
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class Complex<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspComplex(int a, int b) //parameters<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis->real = a;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis->imaginary = b;<br> 
+                                &nbsp&nbsp&nbsp&nbsp}//this is the constructor<br>
+                        };<br>
+                        .<br>
+                        .<br>
+                        .<br>
+                        a(5, 7);<br>
+                    </code>
+                </div>
+                <p>
+                    It is also the only way to declare the variables if they are declared as private.
+                </p>
+
+                <h4>Deconstructors</h4>
+                <p>
+                    In C++, you can manually allocate memory for variables or data structures, as well as free that memory. 
+                    If variables are not manually allocated, they are deleted when the program exits their scope / when the program terminates. 
+                    Therefore, objects follow the same principle. They are deleted when their scope ends / the program terminated.
+                    Objects, like any other variable, can also be manually allocated in the heap, and can also be freed. The latter part is where the deconstructor comes in.
+                    Like a Constructor, it is a special function that has no type and no return. It is simply used to free the memory of all the variables in the objects:
+                </p>
+
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class Example<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspprivate:<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspint *a = new int;<br>
+                            &nbsp&nbsp&nbsp&nbspint *b = new int;<br>
+                                <br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspExample(int a, int b)<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*this->a = a;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*this->b = b;<br>
+                                &nbsp&nbsp&nbsp&nbsp}//Constructor<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbsp~Example()//Declared as class name preceded by ~<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdelete a;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdelete b;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                        };<br>
+                    </code>
+                </div>
+            </section>
+
+            <section class = "main-section" id = "Inheritance">
+                <header>
+                    <h3><strong>Inheritance</strong></h3>
+                </header>
+
+                <uL>
+                    <li>What is Inheritance?</li>
+                    <li>Protected Access</li>
+                    <li>Inheriting with public vs protected vs private</li>
+                </uL>
+                <h4>What is Inheritance?</h4>
+                <p>
+                    Like in the real world, a class can <strong>inherit</strong> the attributes of another class. In Inheritance, the class that inherits is often called 
+                    the <u>derived class</u>, while the class that is being inherited from is known as the <u>base class</u>. 
+                </p>
+
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbsp//variables and methods<br>
+                        };<br>
+                        <br>
+                        class B:public A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbsp//besides it's own attirbutes, B can also use A's, as long as they are not private.<br>
+                        };<br>
+                    </code>
+                </div>
+
+                <p>
+                    In this example, class B inherits A's attirbutes publically. By publically, it means that it basically inherits everything that is not private 
+                    (more on this later). Now, B can use A's functions and variables, if the respective variables/functions are public/protected.
+                </p>
+
+                <h4>Protected Access</h4>
+                <p>
+                    As mentioned before, access type protected is associated with the concept of Inheritance. If a variable in class A is declared as protected, 
+                    then all classes that derive A(like B) have permission to modify the variable's value. Besides the derived classes, the variable is untouchable 
+                    elsewhere in the program
+                </p>
+
+                <h4>Inheriting with public vs protected vs private</h4>
+                <p>As you've seen in the code snippet above, class B inherited public A. To explain this easily, it's best to just showcase this with a code snippet:</p>
+
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbsppublic:<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspint x;<br>
+                            &nbsp&nbsp&nbsp&nbspprotected:<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspint y;<br>
+                            &nbsp&nbsp&nbsp&nbspprivate:<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspint z;<br>
+                        };<br>
+                        <br>
+                        class B : public A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbsp// x is public<br>
+                            &nbsp&nbsp&nbsp&nbsp// y is protected<br>
+                            &nbsp&nbsp&nbsp&nbsp// z is not accessible from B<br>
+                        };<br>
+                        <br>
+                        class C : protected A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbsp// x is protected<br>
+                            &nbsp&nbsp&nbsp&nbsp// y is protected<br>
+                            &nbsp&nbsp&nbsp&nbsp// z is not accessible from C<br>
+                        };<br>
+                        <br>
+                        class D : private A    // 'private' is default for classes<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbsp// x is private<br>
+                            &nbsp&nbsp&nbsp&nbsp// y is private<br>
+                            &nbsp&nbsp&nbsp&nbsp// z is not accessible from D<br>
+                        };<br>
+                    </code>
+                </div>
+            </section>
+
+            <section class = "main-section" id = "Polymorphism">
+                <header>
+                    <h3><strong>Polymorphism</strong></h3>
+                </header>
+
+                <ul>
+                    <li>What is Polymorphism?</li>
+                    <li>Virtual Function</li>
+                </ul>
+
+                <h4>What is Polymorphism?</h4>
+                <p>
+                    The word <i>Polymorphism</i> is composed of the words <i>Poly</i>, which means many and <i>morphism</i>, which means form. 
+                    Therefore, polymorphism translates roughly to multiform. This defenition makes sense, given the way it works in OOP.
+                    <br>
+                    In OOP, polymorphism is generally thought of as a function that is shared between a base class and its derived classes with the same name that 
+                    executes differently depending on the type(class) of the object. It basically changes its "form" depending on its class.
+                </p>
+
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspvoid display()<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << "I am class A" << endl;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                            <br>
+                        };<br>
+                        <br>
+                        <br>
+                        class B:public A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspvoid display()<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << "I am class B" << endl;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                            <br>
+                        };<br>
+                        <br>
+                        <br>
+                        class C:public A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspvoid display()<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << "I am class C" << endl;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                            <br>
+                        };<br>
+                    </code>
+                </div>
+
+                    <p>
+                        In the exmaple above, A is the base class, while B and C derive from A. All 3 classes have the same method <i><strong>display()</strong></i>, 
+                        but print something different depending on their class 
+                    </p>
+
+                    <h4>Virtual Functions</h4>
+                    <p>
+                        A virtual function is basically a template function used in polymorphism. The base class's function is declared as virtual, 
+                        which makes it unable to be executed unless using pointers. Then the derived classes use the same function(minus the virtaul keyword).
+                        This is useful when an object of a derived class is accessed using a pointer of a base class: if the base class's function is not virtual, 
+                        the pointer would call it. But if it's virtual, the pointer will instead call the function of the derived class's object
+                    </p>
+                    <div>
+                        <code>
+                            #include "iostream"<br>
+                            <br>
+                            using namespace std;<br>
+                            <br>
+                            class A<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspvirtual void display()<br>
+                                &nbsp&nbsp&nbsp&nbsp{<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << "I am base class" << endl;<br>
+                                    &nbsp&nbsp&nbsp&nbsp}<br>
+                                <br>
+                            };<br>
+                            <br>
+                            <br>
+                            class B:public A<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspvoid display()<br>
+                                &nbsp&nbsp&nbsp&nbsp{<br>
+                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << "I am class B" << endl;<br>
+                                    &nbsp&nbsp&nbsp&nbsp}<br>
+                                <br>
+                            };<br>
+                            <br>
+                            <br>
+                            int main()<br>
+                            {<br>
+                                &nbsp&nbsp&nbsp&nbspA* a;<br>
+                                &nbsp&nbsp&nbsp&nbspB b;<br>
+                                &nbsp&nbsp&nbsp&nbspa = &b<br>
+                                &nbsp&nbsp&nbsp&nbspa.display()//will use display of B, not A<br>
+                            }<br>
+                        </code>
+                    </div>
+                
+            </section>
+
+            <section class = "main-section" id = "Other">
+                <header>
+                    <h3><strong>Other</strong></h3>
+                </header>
+
+                <ul>
+                    <li>Static</li>
+                    <li>Copy Constructor</li>
+                    <li>Operator Overloading</li>
+                </ul>
+                <h4>Static</h4>
+                <p>
+                    A static function / variable is basically a function/variable that is shared between classes. 
+                    If 4 classes were to be declared with a static variable, that variable would have the same value for all 4 objects of the declared classes
+                </p>
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspstatic a = 18;<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspvoid display_value()<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspcout << this->a; << endl;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                        };<br>
+                        <br>
+                        <br>
+                        int main()<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspA a, b, c, d;<br>
+                            &nbsp&nbsp&nbsp&nbspa.display();b.display;c.display();d.display();//they will all print 18<br>
+                        }<br>
+                    </code>
+                </div>
+
+                <h4>Copy Constructor</h4>
+                <p>
+                    A copy constructor is called when an object is assigned the value of another object. 
+                    It basically handles the reassingment of the variables of the new object to the values of the assigned objects. 
+                    Like a regular constructor, is has the name of the class and doesn't return anything.
+                </p>
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class A<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspint a, b;<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspA(int a, int b)<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis->a = a;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis->b = b;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspA(const A &other)//A constant reference to the object that will be used to assign its values to the current one<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis->a = other.a;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis->b = other.b;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                        };<br>
+                        <br>
+                        <br>
+                        int main()<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspA a(2, 3);<br>
+                            &nbsp&nbsp&nbsp&nbspB b = a//this will call the copy construtor, and give b.a value 2 and b.b value 3<br>
+                        }<br>
+                    </code>
+                </div>
+
+                <h4>Operator Overloading</h4>
+                <p>
+                    Operator overloading, like function overloading, involves alterating the behavior of an operator(think +, -, and so on) under different circumstances. 
+                    It is often used in OOP to define operations between objects. The simplest and most popular example is with string concatination: 
+                    strings are objects, and so they overload the <strong>+</strong> to stick the 2 strings together
+                </p>
+
+                <div>
+                    <code>
+                        #include "iostream"<br>
+                        <br>
+                        using namespace std;<br>
+                        <br>
+                        class Complex<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspint real, imaginary;<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspComplex(int a, int b)<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis->real = a;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthis-imaginary = b;<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                            <br>
+                            &nbsp&nbsp&nbsp&nbspComplex operator+ (const A &second)//second is the second operand of +, first is this<br>
+                            &nbsp&nbsp&nbsp&nbsp{<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspComplex result;//the third number that is the result of the operation<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspresult.real = this->real + second.real;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspresult.imaginary = this->imaginary + second.imaginary;<br>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn result<br>
+                                &nbsp&nbsp&nbsp&nbsp}<br>
+                        };<br>
+                        <br>
+                        <br>
+                        int main()<br>
+                        {<br>
+                            &nbsp&nbsp&nbsp&nbspComplex A(2, 3);<br>
+                            &nbsp&nbsp&nbsp&nbspComplex B(4, 5);<br>
+                            &nbsp&nbsp&nbsp&nbspComplex C = A + B//C.real = 6, C.imaginary = 8<br>
+                        }<br>
+                    </code>
+                </div>
+            </section>
+
+            <footer>
+                For more information, be sure to check the 
+                <a class = "nav-link" href = "https://en.wikipedia.org/wiki/Object-oriented_programming">Wikipedia Page</a> for basic OOP information, as well as the 
+                <a class = "nav-link" href = "https://en.wikipedia.org/wiki/C%2B%2B">C++ Wikipedia Page</a> for C++ OOP and general concepts.
+            </footer>
+        </main>
+    </body>
+</html>
